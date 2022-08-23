@@ -5,6 +5,6 @@ http.createServer(function (req, res) {
   res.write('he ha hu time aayeg'); //write a response to the client
   res.end(); //end the response
 }).listen(5005);
-console.log('Nde.js wdebb sfdexrjdfhjvedoner att port 5005 is running..')
+console.log('Nde.js wdebb sfdexrjdfhjxvedoner att port 5005 is running..')
 
 
