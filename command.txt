@@ -1,0 +1,885 @@
+Welcome to Ubuntu 22.04 LTS (GNU/Linux 5.15.0-1011-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Tue Aug 23 04:20:00 UTC 2022
+
+  System load:  0.0458984375      Processes:             104
+  Usage of /:   8.2% of 28.90GB   Users logged in:       0
+  Memory usage: 42%               IPv4 address for eth0: 172.31.13.131
+  Swap usage:   0%
+
+ * Ubuntu Pro delivers the most comprehensive open source security and
+   compliance features.
+
+   https://ubuntu.com/aws/pro
+
+36 updates can be applied immediately.
+1 of these updates is a standard security update.
+To see these additional updates run: apt list --upgradable
+
+
+*** System restart required ***
+Last login: Mon Aug 22 17:21:11 2022 from 103.199.126.166
+ubuntu@ip-172-31-13-131:~$ pm2 status
+┌─────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ greeting    │ default     │ N/A     │ fork    │ 38800    │ 5D     │ 0    │ online    │ 0%       │ 43.1mb   │ ubuntu   │ disabled │
+│ 4   │ helper      │ default     │ N/A     │ fork    │ 0        │ 0      │ 62   │ errored   │ 0%       │ 0b       │ ubuntu   │ disabled │
+│ 3   │ home        │ default     │ N/A     │ fork    │ 41199    │ 5D     │ 0    │ online    │ 0%       │ 40.3mb   │ ubuntu   │ disabled │
+│ 2   │ profile     │ default     │ N/A     │ fork    │ 40440    │ 5D     │ 0    │ online    │ 0%       │ 41.8mb   │ ubuntu   │ disabled │
+│ 0   │ server      │ default     │ N/A     │ fork    │ 35153    │ 6D     │ 60   │ online    │ 0%       │ 44.3mb   │ ubuntu   │ disabled │
+└─────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ubuntu@ip-172-31-13-131:~$ sudo nano helper.js
+ubuntu@ip-172-31-13-131:~$ sudo nano helper.js
+ubuntu@ip-172-31-13-131:~$ sudo rm helper.js
+ubuntu@ip-172-31-13-131:~$ ls
+dummy.js  greeting.js  helper.js.save  home.js  node_modules  package-lock.json  package.json  profile.js  server.js
+ubuntu@ip-172-31-13-131:~$ sudo rm helper.js.save
+ubuntu@ip-172-31-13-131:~$ ls
+dummy.js  greeting.js  home.js  node_modules  package-lock.json  package.json  profile.js  server.js
+ubuntu@ip-172-31-13-131:~$ git clone https://github.com/palakbhushan/helper.git
+Cloning into 'helper'...
+remote: Enumerating objects: 382, done.
+remote: Counting objects: 100% (382/382), done.
+remote: Compressing objects: 100% (314/314), done.
+remote: Total 382 (delta 51), reused 374 (delta 47), pack-reused 0
+Receiving objects: 100% (382/382), 306.37 KiB | 6.52 MiB/s, done.
+Resolving deltas: 100% (51/51), done.
+ubuntu@ip-172-31-13-131:~$ ls
+dummy.js  greeting.js  helper  home.js  node_modules  package-lock.json  package.json  profile.js  server.js
+ubuntu@ip-172-31-13-131:~$ cd helper
+ubuntu@ip-172-31-13-131:~/helper$ ls
+README.md  index.js  package-lock.json  package.json
+ubuntu@ip-172-31-13-131:~/helper$ cd
+ubuntu@ip-172-31-13-131:~$ sudo rm helper
+rm: cannot remove 'helper': Is a directory
+ubuntu@ip-172-31-13-131:~$ sudo -r rm helper
+sudo: helper: command not found
+ubuntu@ip-172-31-13-131:~$ sudo rm -r helper
+ubuntu@ip-172-31-13-131:~$ ls
+dummy.js  greeting.js  home.js  node_modules  package-lock.json  package.json  profile.js  server.js
+ubuntu@ip-172-31-13-131:~$ git clone https://github.com/palakbhushan/helper.git .
+fatal: destination path '.' already exists and is not an empty directory.
+ubuntu@ip-172-31-13-131:~$ git clone https://github.com/palakbhushan/helper.git 
+Cloning into 'helper'...
+remote: Enumerating objects: 382, done.
+remote: Counting objects: 100% (382/382), done.
+remote: Compressing objects: 100% (314/314), done.
+remote: Total 382 (delta 51), reused 374 (delta 47), pack-reused 0
+Receiving objects: 100% (382/382), 306.37 KiB | 9.28 MiB/s, done.
+Resolving deltas: 100% (51/51), done.
+ubuntu@ip-172-31-13-131:~$ ls
+dummy.js  greeting.js  helper  home.js  node_modules  package-lock.json  package.json  profile.js  server.js
+ubuntu@ip-172-31-13-131:~$ cd helper
+ubuntu@ip-172-31-13-131:~/helper$ ls
+README.md  index.js  package-lock.json  package.json
+ubuntu@ip-172-31-13-131:~/helper$ sudo nano index.j
+ubuntu@ip-172-31-13-131:~/helper$ sudo nano index.js
+ubuntu@ip-172-31-13-131:~/helper$ pm2 status
+┌─────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ greeting    │ default     │ N/A     │ fork    │ 38800    │ 5D     │ 0    │ online    │ 0%       │ 42.4mb   │ ubuntu   │ disabled │
+│ 4   │ helper      │ default     │ N/A     │ fork    │ 0        │ 0      │ 62   │ errored   │ 0%       │ 0b       │ ubuntu   │ disabled │
+│ 3   │ home        │ default     │ N/A     │ fork    │ 41199    │ 5D     │ 0    │ online    │ 0%       │ 40.9mb   │ ubuntu   │ disabled │
+│ 2   │ profile     │ default     │ N/A     │ fork    │ 40440    │ 5D     │ 0    │ online    │ 0%       │ 42.5mb   │ ubuntu   │ disabled │
+│ 0   │ server      │ default     │ N/A     │ fork    │ 35153    │ 6D     │ 60   │ online    │ 0%       │ 44.0mb   │ ubuntu   │ disabled │
+└─────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ubuntu@ip-172-31-13-131:~/helper$ cd
+ubuntu@ip-172-31-13-131:~$ cd /etc/nginx/sites-available
+ubuntu@ip-172-31-13-131:/etc/nginx/sites-available$ ls
+default  palak.ninja
+ubuntu@ip-172-31-13-131:/etc/nginx/sites-available$ sudo nano palak.ninja
+ubuntu@ip-172-31-13-131:/etc/nginx/sites-available$ cd
+ubuntu@ip-172-31-13-131:~$ pm2 stop helper.js
+[PM2] Applying action stopProcessId on app [helper.js](ids: [ 4 ])
+[PM2] [helper.js](4) ✓
+┌─────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ greeting    │ default     │ N/A     │ fork    │ 38800    │ 5D     │ 0    │ online    │ 0%       │ 42.5mb   │ ubuntu   │ disabled │
+│ 4   │ helper      │ default     │ N/A     │ fork    │ 0        │ 0      │ 62   │ stopped   │ 0%       │ 0b       │ ubuntu   │ disabled │
+│ 3   │ home        │ default     │ N/A     │ fork    │ 41199    │ 5D     │ 0    │ online    │ 0%       │ 40.6mb   │ ubuntu   │ disabled │
+│ 2   │ profile     │ default     │ N/A     │ fork    │ 40440    │ 5D     │ 0    │ online    │ 0%       │ 42.6mb   │ ubuntu   │ disabled │
+│ 0   │ server      │ default     │ N/A     │ fork    │ 35153    │ 6D     │ 60   │ online    │ 0%       │ 44.4mb   │ ubuntu   │ disabled │
+└─────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ubuntu@ip-172-31-13-131:~$ pm2 start index.js
+[PM2][ERROR] Script not found: /home/ubuntu/index.js
+ubuntu@ip-172-31-13-131:~$ cd helper
+ubuntu@ip-172-31-13-131:~/helper$ pm2 start index.js
+[PM2] Starting /home/ubuntu/helper/index.js in fork_mode (1 instance)
+[PM2] Done.
+┌─────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ greeting    │ default     │ N/A     │ fork    │ 38800    │ 5D     │ 0    │ online    │ 0%       │ 43.1mb   │ ubuntu   │ disabled │
+│ 4   │ helper      │ default     │ N/A     │ fork    │ 0        │ 0      │ 62   │ stopped   │ 0%       │ 0b       │ ubuntu   │ disabled │
+│ 3   │ home        │ default     │ N/A     │ fork    │ 41199    │ 5D     │ 0    │ online    │ 0%       │ 40.6mb   │ ubuntu   │ disabled │
+│ 5   │ index       │ default     │ 1.0.0   │ fork    │ 64753    │ 0s     │ 0    │ online    │ 0%       │ 14.4mb   │ ubuntu   │ disabled │
+│ 2   │ profile     │ default     │ N/A     │ fork    │ 40440    │ 5D     │ 0    │ online    │ 0%       │ 42.6mb   │ ubuntu   │ disabled │
+│ 0   │ server      │ default     │ N/A     │ fork    │ 35153    │ 6D     │ 60   │ online    │ 0%       │ 44.1mb   │ ubuntu   │ disabled │
+└─────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ubuntu@ip-172-31-13-131:~/helper$ sudo systemctl restart nginx
+ubuntu@ip-172-31-13-131:~/helper$ cd
+ubuntu@ip-172-31-13-131:~$ sudo rm helper -r
+ubuntu@ip-172-31-13-131:~$ git clone https://github.com/palakbhushan/main-server.git
+Cloning into 'main-server'...
+remote: Enumerating objects: 14, done.
+remote: Counting objects: 100% (14/14), done.
+remote: Compressing objects: 100% (9/9), done.
+remote: Total 14 (delta 3), reused 13 (delta 2), pack-reused 0
+Receiving objects: 100% (14/14), done.
+Resolving deltas: 100% (3/3), done.
+ubuntu@ip-172-31-13-131:~$ ls
+dummy.js  greeting.js  home.js  main-server  node_modules  package-lock.json  package.json  profile.js  server.js
+ubuntu@ip-172-31-13-131:~$ cd main-server/
+ubuntu@ip-172-31-13-131:~/main-server$ ls
+index.js  package-lock.json  package.json
+ubuntu@ip-172-31-13-131:~/main-server$ pm2 stop index.js
+[PM2][ERROR] Process or Namespace index.js not found
+ubuntu@ip-172-31-13-131:~/main-server$ pm2 status
+┌─────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ greeting    │ default     │ N/A     │ fork    │ 38800    │ 5D     │ 0    │ online    │ 0%       │ 42.6mb   │ ubuntu   │ disabled │
+│ 4   │ helper      │ default     │ N/A     │ fork    │ 0        │ 0      │ 62   │ stopped   │ 0%       │ 0b       │ ubuntu   │ disabled │
+│ 3   │ home        │ default     │ N/A     │ fork    │ 41199    │ 5D     │ 0    │ online    │ 0%       │ 41.0mb   │ ubuntu   │ disabled │
+│ 5   │ index       │ default     │ 1.0.0   │ fork    │ 64753    │ 5m     │ 0    │ online    │ 0%       │ 43.8mb   │ ubuntu   │ disabled │
+│ 2   │ profile     │ default     │ N/A     │ fork    │ 40440    │ 5D     │ 0    │ online    │ 0%       │ 42.4mb   │ ubuntu   │ disabled │
+│ 0   │ server      │ default     │ N/A     │ fork    │ 35153    │ 6D     │ 60   │ online    │ 0%       │ 43.9mb   │ ubuntu   │ disabled │
+└─────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ubuntu@ip-172-31-13-131:~/main-server$ cd
+ubuntu@ip-172-31-13-131:~$ pm2 remove index.js 
+[PM2][ERROR] Command not found
+
+usage: pm2 [options] <command>
+
+pm2 -h, --help             all available commands and options
+pm2 examples               display pm2 usage examples
+pm2 <command> -h           help on a specific command
+
+Access pm2 files in ~/.pm2
+ubuntu@ip-172-31-13-131:~$ pm2 stop index.js 
+[PM2][ERROR] Process or Namespace index.js not found
+ubuntu@ip-172-31-13-131:~$ pm2 reload
+
+  error: missing required argument `id|name|namespace|all'
+
+ubuntu@ip-172-31-13-131:~$ pm2 reload all
+Use --update-env to update environment variables
+[PM2] Applying action reloadProcessId on app [all](ids: [ 0, 1, 2, 3, 4, 5 ])
+[PM2] [server](0) ✓
+[PM2] [greeting](1) ✓
+[PM2] [profile](2) ✓
+[PM2] [helper](4) ✓
+[PM2] [home](3) ✓
+[PM2] [index](5) ✓
+ubuntu@ip-172-31-13-131:~$ pm2 status
+┌─────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ greeting    │ default     │ N/A     │ fork    │ 64856    │ 7s     │ 1    │ online    │ 0%       │ 42.3mb   │ ubuntu   │ disabled │
+│ 4   │ helper      │ default     │ N/A     │ fork    │ 0        │ 0      │ 77   │ errored   │ 0%       │ 0b       │ ubuntu   │ disabled │
+│ 3   │ home        │ default     │ N/A     │ fork    │ 64872    │ 7s     │ 1    │ online    │ 0%       │ 42.0mb   │ ubuntu   │ disabled │
+│ 5   │ index       │ default     │ N/A     │ fork    │ N/A      │ 0      │ 1    │ errored   │ 0%       │ 0b       │ ubuntu   │ disabled │
+│ 2   │ profile     │ default     │ N/A     │ fork    │ 64865    │ 7s     │ 1    │ online    │ 0%       │ 42.0mb   │ ubuntu   │ disabled │
+│ 0   │ server      │ default     │ N/A     │ fork    │ 64849    │ 7s     │ 61   │ online    │ 0%       │ 42.0mb   │ ubuntu   │ disabled │
+└─────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ubuntu@ip-172-31-13-131:~$ pm2 delete index
+[PM2] Applying action deleteProcessId on app [index](ids: [ 5 ])
+[PM2] [index](5) ✓
+┌─────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ greeting    │ default     │ N/A     │ fork    │ 64856    │ 61s    │ 1    │ online    │ 0%       │ 40.3mb   │ ubuntu   │ disabled │
+│ 4   │ helper      │ default     │ N/A     │ fork    │ 0        │ 0      │ 77   │ errored   │ 0%       │ 0b       │ ubuntu   │ disabled │
+│ 3   │ home        │ default     │ N/A     │ fork    │ 64872    │ 60s    │ 1    │ online    │ 0%       │ 40.4mb   │ ubuntu   │ disabled │
+│ 2   │ profile     │ default     │ N/A     │ fork    │ 64865    │ 60s    │ 1    │ online    │ 0%       │ 40.1mb   │ ubuntu   │ disabled │
+│ 0   │ server      │ default     │ N/A     │ fork    │ 64849    │ 61s    │ 61   │ online    │ 0%       │ 40.2mb   │ ubuntu   │ disabled │
+└─────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ubuntu@ip-172-31-13-131:~$ pm2 delete helper
+[PM2] Applying action deleteProcessId on app [helper](ids: [ 4 ])
+[PM2] [helper](4) ✓
+┌─────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ greeting    │ default     │ N/A     │ fork    │ 64856    │ 69s    │ 1    │ online    │ 0%       │ 39.9mb   │ ubuntu   │ disabled │
+│ 3   │ home        │ default     │ N/A     │ fork    │ 64872    │ 69s    │ 1    │ online    │ 0%       │ 39.6mb   │ ubuntu   │ disabled │
+│ 2   │ profile     │ default     │ N/A     │ fork    │ 64865    │ 69s    │ 1    │ online    │ 0%       │ 39.4mb   │ ubuntu   │ disabled │
+│ 0   │ server      │ default     │ N/A     │ fork    │ 64849    │ 69s    │ 61   │ online    │ 0%       │ 39.4mb   │ ubuntu   │ disabled │
+└─────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ubuntu@ip-172-31-13-131:~$ ls
+dummy.js  greeting.js  home.js  main-server  node_modules  package-lock.json  package.json  profile.js  server.js
+ubuntu@ip-172-31-13-131:~$ cd main-server/
+ubuntu@ip-172-31-13-131:~/main-server$ sudo nano index.js
+ubuntu@ip-172-31-13-131:~/main-server$ sudo nano index.js
+ubuntu@ip-172-31-13-131:~/main-server$ cd main-server/
+-bash: cd: main-server/: No such file or directory
+ubuntu@ip-172-31-13-131:~/main-server$ pm2 start index.js
+[PM2] Starting /home/ubuntu/main-server/index.js in fork_mode (1 instance)
+[PM2] Done.
+┌─────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ greeting    │ default     │ N/A     │ fork    │ 64856    │ 2m     │ 1    │ online    │ 0%       │ 40.7mb   │ ubuntu   │ disabled │
+│ 3   │ home        │ default     │ N/A     │ fork    │ 64872    │ 2m     │ 1    │ online    │ 0%       │ 40.7mb   │ ubuntu   │ disabled │
+│ 6   │ index       │ default     │ 1.0.0   │ fork    │ 65114    │ 0s     │ 0    │ online    │ 0%       │ 14.3mb   │ ubuntu   │ disabled │
+│ 2   │ profile     │ default     │ N/A     │ fork    │ 64865    │ 2m     │ 1    │ online    │ 0%       │ 40.1mb   │ ubuntu   │ disabled │
+│ 0   │ server      │ default     │ N/A     │ fork    │ 64849    │ 2m     │ 61   │ online    │ 0%       │ 39.4mb   │ ubuntu   │ disabled │
+└─────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ubuntu@ip-172-31-13-131:~/main-server$ sudo systemctl restart nginx
+ubuntu@ip-172-31-13-131:~/main-server$ cd
+ubuntu@ip-172-31-13-131:~$ cd `
+> ^C
+ubuntu@ip-172-31-13-131:~$ cd ~
+ubuntu@ip-172-31-13-131:~$ mkdir webhook
+Welcome to Ubuntu 22.04 LTS (GNU/Linux 5.15.0-1011-aws x86_64)
+-bash: cd: webhooks: No such file or directory
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.comr.js
+ * Support:        https://ubuntu.com/advantage
+helper.js
+  System information as of Tue Aug 23 14:22:57 UTC 2022
+ubuntu@ip-172-31-13-131:~$ sudo ufw allow 8080/tcp
+  System load:  0.0                Processes:             106
+  Usage of /:   10.5% of 28.90GB   Users logged in:       1
+  Memory usage: 38%                IPv4 address for eth0: 172.31.13.131
+  Swap usage:   0%3-131:~/webhook$ nodejs helper.js 
+Command 'nodejs' not found, but can be installed with:
+ * Ubuntu Pro delivers the most comprehensive open source security and
+   compliance features.:~/webhook$ node helper.js 
+node:events:498
+   https://ubuntu.com/aws/pro'error' event
+      ^
+34 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+    at Server.setupListenHandle [as _listen2] (node:net:1330:16)
+    at listenInCluster (node:net:1378:12)
+*** System restart required ***1465:7)
+Last login: Tue Aug 23 08:07:59 2022 from 49.249.66.234js:19:4)
+ubuntu@ip-172-31-13-131:~$ e:internal/modules/cjs/loader:1103:14)
+ubuntu@ip-172-31-13-131:~$ sions..js (node:internal/modules/cjs/loader:1155:10)
+ubuntu@ip-172-31-13-131:~$ ternal/modules/cjs/loader:981:32)
+ubuntu@ip-172-31-13-131:~$ d (node:internal/modules/cjs/loader:822:12)
+ubuntu@ip-172-31-13-131:~$ EntryPoint [as runMain] (node:internal/modules/run_main:77:12)
+ubuntu@ip-172-31-13-131:~$ un_main_module:17:47
+ubuntu@ip-172-31-13-131:~$ rver instance at:
+ubuntu@ip-172-31-13-131:~$ t:1357:8)
+ubuntu@ip-172-31-13-131:~$ tions (node:internal/process/task_queues:83:21) {
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ ebhook$ ls
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ ebhook$ cd
+ubuntu@ip-172-31-13-131:~$ ls
+ubuntu@ip-172-31-13-131:~$ ode_modules       package.json  server.js
+ubuntu@ip-172-31-13-131:~$ ackage-lock.json  profile.js    webhook
+ubuntu@ip-172-31-13-131:~$ cd main-server/
+ubuntu@ip-172-31-13-131:~$ ain-server$ ls
+ubuntu@ip-172-31-13-131:~$   package.json
+ubuntu@ip-172-31-13-131:~$ ain-server$ sudo nano index.js
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ 
+ubuntu@ip-172-31-13-131:~$ ls
+dummy.js  greeting.js  home.js  main-ser  node_modules  package-lock.json  package.json  profile.js  server.js  webhook
+ubuntu@ip-172-31-13-131:~$ pm2 logs
+[TAILING] Tailing last 15 lines for [all] processes (change the value with --lines option)
+/home/ubuntu/.pm2/pm2.log last 15 lines:
+PM2        | 2022-08-23T12:28:54: PM2 log: App [helper:1] online
+PM2        | 2022-08-23T12:28:54: PM2 log: App [helper:1] exited with code [1] via signal [SIGINT]
+PM2        | 2022-08-23T12:28:54: PM2 log: App [helper:1] starting in -fork mode-
+PM2        | 2022-08-23T12:28:54: PM2 log: App [helper:1] online
+PM2        | 2022-08-23T12:28:54: PM2 log: App [helper:1] exited with code [1] via signal [SIGINT]
+PM2        | 2022-08-23T12:28:54: PM2 log: Script /home/ubuntu/webhook/helper.js had too many unstable restarts (16). Stopped. "errored"
+PM2        | 2022-08-23T12:32:42: PM2 log: Stopping app:helper id:1
+PM2        | 2022-08-23T12:32:42: PM2 error: app=helper id=1 does not have a pid
+PM2        | 2022-08-23T12:44:35: PM2 log: App [helper:1] starting in -fork mode-
+PM2        | 2022-08-23T12:44:35: PM2 log: App [helper:1] online
+PM2        | 2022-08-23T13:17:26: PM2 log: Stopping app:helper id:1
+PM2        | 2022-08-23T13:17:26: PM2 log: App [helper:1] exited with code [0] via signal [SIGINT]
+PM2        | 2022-08-23T13:17:26: PM2 log: pid=68031 msg=process killed
+PM2        | 2022-08-23T13:25:10: PM2 log: App [helper:1] starting in -fork mode-
+PM2        | 2022-08-23T13:25:10: PM2 log: App [helper:1] online
+
+/home/ubuntu/.pm2/logs/index-error.log last 15 lines:
+/home/ubuntu/.pm2/logs/index-out.log last 15 lines:
+0|index    | hi
+0|index    | Node.js web server at port 5000 is running..
+
+/home/ubuntu/.pm2/logs/helper-error.log last 15 lines:
+1|helper   | /home/ubuntu/webhook/helper.js:14
+1|helper   |             exec('cd ' + /home/ubuntu/main-ser + ' && git pull');
+1|helper   |                          ^
+1|helper   | 
+1|helper   | SyntaxError: Invalid regular expression flags
+1|helper   |     at Object.compileFunction (node:vm:352:18)
+1|helper   |     at wrapSafe (node:internal/modules/cjs/loader:1032:15)
+1|helper   |     at Module._compile (node:internal/modules/cjs/loader:1067:27)
+1|helper   |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1155:10)
+1|helper   |     at Module.load (node:internal/modules/cjs/loader:981:32)
+1|helper   |     at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+1|helper   |     at Object.<anonymous> (/home/ubuntu/.nvm/versions/node/v16.14.0/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+1|helper   |     at Module._compile (node:internal/modules/cjs/loader:1103:14)
+1|helper   |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1155:10)
+1|helper   |     at Module.load (node:internal/modules/cjs/loader:981:32)
+
+/home/ubuntu/.pm2/logs/helper-out.log last 15 lines:
+1|helper   | ok!
+1|helper   | ok!
+1|helper   | ok!
+
+^C
+ubuntu@ip-172-31-13-131:~$ ls
+dummy.js  greeting.js  home.js  main-ser  node_modules  package-lock.json  package.json  profile.js  server.js  webhook
+ubuntu@ip-172-31-13-131:~$ cd webhook/
+ubuntu@ip-172-31-13-131:~/webhook$ ls
+helper.js
+ubuntu@ip-172-31-13-131:~/webhook$ sudo nano helper.js
+ubuntu@ip-172-31-13-131:~/webhook$ sudo nano helper.js
+ubuntu@ip-172-31-13-131:~/webhook$ pm2 restart helper.js
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [helper.js](ids: [ 1 ])
+[PM2] [helper](1) ✓
+┌─────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼───────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ helper    │ default     │ N/A     │ fork    │ 73361    │ 0s     │ 16   │ online    │ 0%       │ 10.1mb   │ ubuntu   │ disabled │
+│ 0   │ index     │ default     │ 1.0.0   │ fork    │ 67720    │ 117m   │ 0    │ online    │ 0%       │ 29.9mb   │ ubuntu   │ disabled │
+└─────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ubuntu@ip-172-31-13-131:~/webhook$ sudo nano helper.js
+ubuntu@ip-172-31-13-131:~/webhook$ pm2 restart helper.js
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [helper.js](ids: [ 1 ])
+[PM2] [helper](1) ✓
+┌─────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼───────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ helper    │ default     │ N/A     │ fork    │ 73385    │ 0s     │ 17   │ online    │ 0%       │ 14.4mb   │ ubuntu   │ disabled │
+│ 0   │ index     │ default     │ 1.0.0   │ fork    │ 67720    │ 118m   │ 0    │ online    │ 0%       │ 29.8mb   │ ubuntu   │ disabled │
+└─────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ubuntu@ip-172-31-13-131:~/webhook$ cd
+ubuntu@ip-172-31-13-131:~$ pm2 logs
+[TAILING] Tailing last 15 lines for [all] processes (change the value with --lines option)
+/home/ubuntu/.pm2/pm2.log last 15 lines:
+PM2        | 2022-08-23T13:17:26: PM2 log: Stopping app:helper id:1
+PM2        | 2022-08-23T13:17:26: PM2 log: App [helper:1] exited with code [0] via signal [SIGINT]
+PM2        | 2022-08-23T13:17:26: PM2 log: pid=68031 msg=process killed
+PM2        | 2022-08-23T13:25:10: PM2 log: App [helper:1] starting in -fork mode-
+PM2        | 2022-08-23T13:25:10: PM2 log: App [helper:1] online
+PM2        | 2022-08-23T14:24:47: PM2 log: Stopping app:helper id:1
+PM2        | 2022-08-23T14:24:47: PM2 log: App [helper:1] exited with code [0] via signal [SIGINT]
+PM2        | 2022-08-23T14:24:47: PM2 log: pid=72931 msg=process killed
+PM2        | 2022-08-23T14:24:47: PM2 log: App [helper:1] starting in -fork mode-
+PM2        | 2022-08-23T14:24:47: PM2 log: App [helper:1] online
+PM2        | 2022-08-23T14:25:35: PM2 log: Stopping app:helper id:1
+PM2        | 2022-08-23T14:25:35: PM2 log: App [helper:1] exited with code [0] via signal [SIGINT]
+PM2        | 2022-08-23T14:25:35: PM2 log: pid=73361 msg=process killed
+PM2        | 2022-08-23T14:25:35: PM2 log: App [helper:1] starting in -fork mode-
+PM2        | 2022-08-23T14:25:35: PM2 log: App [helper:1] online
+
+/home/ubuntu/.pm2/logs/index-error.log last 15 lines:
+/home/ubuntu/.pm2/logs/index-out.log last 15 lines:
+0|index    | hi
+0|index    | Node.js web server at port 5000 is running..
+
+/home/ubuntu/.pm2/logs/helper-error.log last 15 lines:
+1|helper   | /home/ubuntu/webhook/helper.js:14
+1|helper   |             exec('cd ' + /home/ubuntu/main-ser + ' && git pull');
+1|helper   |                          ^
+1|helper   | 
+1|helper   | SyntaxError: Invalid regular expression flags
+1|helper   |     at Object.compileFunction (node:vm:352:18)
+1|helper   |     at wrapSafe (node:internal/modules/cjs/loader:1032:15)
+1|helper   |     at Module._compile (node:internal/modules/cjs/loader:1067:27)
+1|helper   |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1155:10)
+1|helper   |     at Module.load (node:internal/modules/cjs/loader:981:32)
+1|helper   |     at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+1|helper   |     at Object.<anonymous> (/home/ubuntu/.nvm/versions/node/v16.14.0/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+1|helper   |     at Module._compile (node:internal/modules/cjs/loader:1103:14)
+1|helper   |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1155:10)
+1|helper   |     at Module.load (node:internal/modules/cjs/loader:981:32)
+
+/home/ubuntu/.pm2/logs/helper-out.log last 15 lines:
+1|helper   | ok!
+1|helper   | ok!
+1|helper   | ok!
+1|helper   | ok!
+
+^C          
+ubuntu@ip-172-31-13-131:~$ cd main-ser/
+ubuntu@ip-172-31-13-131:~/main-ser$ sudo nano index.js
+ubuntu@ip-172-31-13-131:~/main-ser$ cd
+ubuntu@ip-172-31-13-131:~$ cd webhook/
+ubuntu@ip-172-31-13-131:~/webhook$ ls
+helper.js
+ubuntu@ip-172-31-13-131:~/webhook$ sudo nano helper.js 
+ubuntu@ip-172-31-13-131:~/webhook$ pm2 restart helper.js
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [helper.js](ids: [ 1 ])
+[PM2] [helper](1) ✓
+┌─────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼───────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ helper    │ default     │ N/A     │ fork    │ 73436    │ 0s     │ 18   │ online    │ 0%       │ 14.4mb   │ ubuntu   │ disabled │
+│ 0   │ index     │ default     │ 1.0.0   │ fork    │ 67720    │ 2h     │ 0    │ online    │ 0%       │ 29.9mb   │ ubuntu   │ disabled │
+└─────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ubuntu@ip-172-31-13-131:~/webhook$ ls
+helper.js
+ubuntu@ip-172-31-13-131:~/webhook$ pm2 logs
+[TAILING] Tailing last 15 lines for [all] processes (change the value with --lines option)
+/home/ubuntu/.pm2/pm2.log last 15 lines:
+PM2        | 2022-08-23T14:24:47: PM2 log: Stopping app:helper id:1
+PM2        | 2022-08-23T14:24:47: PM2 log: App [helper:1] exited with code [0] via signal [SIGINT]
+PM2        | 2022-08-23T14:24:47: PM2 log: pid=72931 msg=process killed
+PM2        | 2022-08-23T14:24:47: PM2 log: App [helper:1] starting in -fork mode-
+PM2        | 2022-08-23T14:24:47: PM2 log: App [helper:1] online
+PM2        | 2022-08-23T14:25:35: PM2 log: Stopping app:helper id:1
+PM2        | 2022-08-23T14:25:35: PM2 log: App [helper:1] exited with code [0] via signal [SIGINT]
+PM2        | 2022-08-23T14:25:35: PM2 log: pid=73361 msg=process killed
+PM2        | 2022-08-23T14:25:35: PM2 log: App [helper:1] starting in -fork mode-
+PM2        | 2022-08-23T14:25:35: PM2 log: App [helper:1] online
+PM2        | 2022-08-23T14:28:41: PM2 log: Stopping app:helper id:1
+PM2        | 2022-08-23T14:28:41: PM2 log: App [helper:1] exited with code [0] via signal [SIGINT]
+PM2        | 2022-08-23T14:28:42: PM2 log: pid=73385 msg=process killed
+PM2        | 2022-08-23T14:28:42: PM2 log: App [helper:1] starting in -fork mode-
+PM2        | 2022-08-23T14:28:42: PM2 log: App [helper:1] online
+
+/home/ubuntu/.pm2/logs/index-error.log last 15 lines:
+/home/ubuntu/.pm2/logs/index-out.log last 15 lines:
+0|index    | hi
+0|index    | Node.js web server at port 5000 is running..
+
+/home/ubuntu/.pm2/logs/helper-error.log last 15 lines:
+1|helper   | /home/ubuntu/webhook/helper.js:14
+1|helper   |             exec('cd ' + /home/ubuntu/main-ser + ' && git pull');
+1|helper   |                          ^
+1|helper   | 
+1|helper   | SyntaxError: Invalid regular expression flags
+1|helper   |     at Object.compileFunction (node:vm:352:18)
+1|helper   |     at wrapSafe (node:internal/modules/cjs/loader:1032:15)
+1|helper   |     at Module._compile (node:internal/modules/cjs/loader:1067:27)
+1|helper   |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1155:10)
+1|helper   |     at Module.load (node:internal/modules/cjs/loader:981:32)
+1|helper   |     at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+1|helper   |     at Object.<anonymous> (/home/ubuntu/.nvm/versions/node/v16.14.0/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+1|helper   |     at Module._compile (node:internal/modules/cjs/loader:1103:14)
+1|helper   |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1155:10)
+1|helper   |     at Module.load (node:internal/modules/cjs/loader:981:32)
+
+/home/ubuntu/.pm2/logs/helper-out.log last 15 lines:
+1|helper   | ok!
+1|helper   | ok!
+1|helper   | ok!
+1|helper   | ok!
+
+^C
+ubuntu@ip-172-31-13-131:~/webhook$ sudo nano helper.js 
+ubuntu@ip-172-31-13-131:~/webhook$ sudo nano helper.js 
+ubuntu@ip-172-31-13-131:~/webhook$ pm2 restart helper.js
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [helper.js](ids: [ 1 ])
+[PM2] [helper](1) ✓
+┌─────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼───────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ helper    │ default     │ N/A     │ fork    │ 73483    │ 0s     │ 19   │ online    │ 0%       │ 11.4mb   │ ubuntu   │ disabled │
+│ 0   │ index     │ default     │ 1.0.0   │ fork    │ 67720    │ 2h     │ 0    │ online    │ 0%       │ 30.0mb   │ ubuntu   │ disabled │
+└─────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ubuntu@ip-172-31-13-131:~/webhook$ pm2 logs
+[TAILING] Tailing last 15 lines for [all] processes (change the value with --lines option)
+/home/ubuntu/.pm2/pm2.log last 15 lines:
+PM2        | 2022-08-23T14:25:35: PM2 log: Stopping app:helper id:1
+PM2        | 2022-08-23T14:25:35: PM2 log: App [helper:1] exited with code [0] via signal [SIGINT]
+PM2        | 2022-08-23T14:25:35: PM2 log: pid=73361 msg=process killed
+PM2        | 2022-08-23T14:25:35: PM2 log: App [helper:1] starting in -fork mode-
+PM2        | 2022-08-23T14:25:35: PM2 log: App [helper:1] online
+PM2        | 2022-08-23T14:28:41: PM2 log: Stopping app:helper id:1
+PM2        | 2022-08-23T14:28:41: PM2 log: App [helper:1] exited with code [0] via signal [SIGINT]
+PM2        | 2022-08-23T14:28:42: PM2 log: pid=73385 msg=process killed
+PM2        | 2022-08-23T14:28:42: PM2 log: App [helper:1] starting in -fork mode-
+PM2        | 2022-08-23T14:28:42: PM2 log: App [helper:1] online
+PM2        | 2022-08-23T14:35:15: PM2 log: Stopping app:helper id:1
+PM2        | 2022-08-23T14:35:15: PM2 log: App [helper:1] exited with code [0] via signal [SIGINT]
+PM2        | 2022-08-23T14:35:15: PM2 log: pid=73436 msg=process killed
+PM2        | 2022-08-23T14:35:15: PM2 log: App [helper:1] starting in -fork mode-
+PM2        | 2022-08-23T14:35:15: PM2 log: App [helper:1] online
+
+/home/ubuntu/.pm2/logs/index-error.log last 15 lines:
+/home/ubuntu/.pm2/logs/index-out.log last 15 lines:
+0|index    | hi
+0|index    | Node.js web server at port 5000 is running..
+
+/home/ubuntu/.pm2/logs/helper-error.log last 15 lines:
+1|helper   | /home/ubuntu/webhook/helper.js:14
+1|helper   |             exec('cd ' + /home/ubuntu/main-ser + ' && git pull');
+1|helper   |                          ^
+1|helper   | 
+1|helper   | SyntaxError: Invalid regular expression flags
+1|helper   |     at Object.compileFunction (node:vm:352:18)
+1|helper   |     at wrapSafe (node:internal/modules/cjs/loader:1032:15)
+1|helper   |     at Module._compile (node:internal/modules/cjs/loader:1067:27)
+1|helper   |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1155:10)
+1|helper   |     at Module.load (node:internal/modules/cjs/loader:981:32)
+1|helper   |     at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+1|helper   |     at Object.<anonymous> (/home/ubuntu/.nvm/versions/node/v16.14.0/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+1|helper   |     at Module._compile (node:internal/modules/cjs/loader:1103:14)
+1|helper   |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1155:10)
+1|helper   |     at Module.load (node:internal/modules/cjs/loader:981:32)
+
+/home/ubuntu/.pm2/logs/helper-out.log last 15 lines:
+1|helper   | ok!
+1|helper   | ok!
+1|helper   | ok!
+1|helper   | ok!
+
+^C
+ubuntu@ip-172-31-13-131:~/webhook$ sudo nano helper.js 
+ubuntu@ip-172-31-13-131:~/webhook$ pm2 restart helper.js
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [helper.js](ids: [ 1 ])
+[PM2] [helper](1) ✓
+┌─────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼───────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ helper    │ default     │ N/A     │ fork    │ 73536    │ 0s     │ 20   │ online    │ 0%       │ 10.0mb   │ ubuntu   │ disabled │
+│ 0   │ index     │ default     │ 1.0.0   │ fork    │ 67720    │ 2h     │ 0    │ online    │ 0%       │ 30.3mb   │ ubuntu   │ disabled │
+└─────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ubuntu@ip-172-31-13-131:~/webhook$ pm2 stop helper.js 
+[PM2] Applying action stopProcessId on app [helper.js](ids: [ 1 ])
+[PM2] [helper](1) ✓
+┌─────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼───────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ helper    │ default     │ N/A     │ fork    │ 0        │ 0      │ 20   │ stopped   │ 0%       │ 0b       │ ubuntu   │ disabled │
+│ 0   │ index     │ default     │ 1.0.0   │ fork    │ 67720    │ 2h     │ 0    │ online    │ 0%       │ 29.9mb   │ ubuntu   │ disabled │
+└─────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ubuntu@ip-172-31-13-131:~/webhook$ node helper.js 
+/home/ubuntu/webhook/helper.js:16
+                console.log(repo,+"--------- "+dig);
+                                               ^
+
+ReferenceError: dig is not defined
+    at IncomingMessage.<anonymous> (/home/ubuntu/webhook/helper.js:16:34)
+    at IncomingMessage.emit (node:events:520:28)
+    at IncomingMessage.Readable.read (node:internal/streams/readable:527:10)
+    at flow (node:internal/streams/readable:1012:34)
+    at resume_ (node:internal/streams/readable:993:3)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21)
+ubuntu@ip-172-31-13-131:~/webhook$ sudo nano helper.js 
+ubuntu@ip-172-31-13-131:~/webhook$ node helper.js 
+home/ubuntu/main-ser/ NaNsha1=bd1acd13c8385041901f6fccd33d066ce8160551
+^C
+ubuntu@ip-172-31-13-131:~/webhook$ sudo nano helper.js 
+ubuntu@ip-172-31-13-131:~/webhook$ node helper.js 
+home/ubuntu/main-ser/ adding sha1=29e6d7d8ef99e3555679c0d7b62cbc43e4830ac8
+^C
+ubuntu@ip-172-31-13-131:~/webhook$ cd
+ubuntu@ip-172-31-13-131:~$ cd main-ser/
+ubuntu@ip-172-31-13-131:~/main-ser$ sudo nano index.js 
+ubuntu@ip-172-31-13-131:~/main-ser$ cd
+ubuntu@ip-172-31-13-131:~$ cd w
+-bash: cd: w: No such file or directory
+ubuntu@ip-172-31-13-131:~$ cd webhook/
+ubuntu@ip-172-31-13-131:~/webhook$ ls
+helper.js
+ubuntu@ip-172-31-13-131:~/webhook$ sudo nano helper.js 
+ubuntu@ip-172-31-13-131:~/webhook$ sudo nano helper.js 
+ubuntu@ip-172-31-13-131:~/webhook$ pm2 status
+┌─────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼───────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ helper    │ default     │ N/A     │ fork    │ 0        │ 0      │ 20   │ stopped   │ 0%       │ 0b       │ ubuntu   │ disabled │
+│ 0   │ index     │ default     │ 1.0.0   │ fork    │ 67720    │ 2h     │ 0    │ online    │ 0%       │ 30.4mb   │ ubuntu   │ disabled │
+└─────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ubuntu@ip-172-31-13-131:~/webhook$ pm2 start helper
+[PM2] Applying action restartProcessId on app [helper](ids: [ 1 ])
+[PM2] [helper](1) ✓
+[PM2] Process successfully started
+┌─────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼───────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ helper    │ default     │ N/A     │ fork    │ 73654    │ 0s     │ 20   │ online    │ 0%       │ 14.3mb   │ ubuntu   │ disabled │
+│ 0   │ index     │ default     │ 1.0.0   │ fork    │ 67720    │ 2h     │ 0    │ online    │ 0%       │ 30.2mb   │ ubuntu   │ disabled │
+└─────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ubuntu@ip-172-31-13-131:~/webhook$ pm2 logs
+[TAILING] Tailing last 15 lines for [all] processes (change the value with --lines option)
+/home/ubuntu/.pm2/pm2.log last 15 lines:
+PM2        | 2022-08-23T14:35:15: PM2 log: Stopping app:helper id:1
+PM2        | 2022-08-23T14:35:15: PM2 log: App [helper:1] exited with code [0] via signal [SIGINT]
+PM2        | 2022-08-23T14:35:15: PM2 log: pid=73436 msg=process killed
+PM2        | 2022-08-23T14:35:15: PM2 log: App [helper:1] starting in -fork mode-
+PM2        | 2022-08-23T14:35:15: PM2 log: App [helper:1] online
+PM2        | 2022-08-23T14:45:48: PM2 log: Stopping app:helper id:1
+PM2        | 2022-08-23T14:45:48: PM2 log: App [helper:1] exited with code [0] via signal [SIGINT]
+PM2        | 2022-08-23T14:45:48: PM2 log: pid=73483 msg=process killed
+PM2        | 2022-08-23T14:45:48: PM2 log: App [helper:1] starting in -fork mode-
+PM2        | 2022-08-23T14:45:48: PM2 log: App [helper:1] online
+PM2        | 2022-08-23T14:45:56: PM2 log: Stopping app:helper id:1
+PM2        | 2022-08-23T14:45:56: PM2 log: App [helper:1] exited with code [0] via signal [SIGINT]
+PM2        | 2022-08-23T14:45:56: PM2 log: pid=73536 msg=process killed
+PM2        | 2022-08-23T15:02:39: PM2 log: App [helper:1] starting in -fork mode-
+PM2        | 2022-08-23T15:02:39: PM2 log: App [helper:1] online
+
+/home/ubuntu/.pm2/logs/index-error.log last 15 lines:
+/home/ubuntu/.pm2/logs/index-out.log last 15 lines:
+0|index    | hi
+0|index    | Node.js web server at port 5000 is running..
+
+/home/ubuntu/.pm2/logs/helper-error.log last 15 lines:
+1|helper   | /home/ubuntu/webhook/helper.js:14
+1|helper   |             exec('cd ' + /home/ubuntu/main-ser + ' && git pull');
+1|helper   |                          ^
+1|helper   | 
+1|helper   | SyntaxError: Invalid regular expression flags
+1|helper   |     at Object.compileFunction (node:vm:352:18)
+1|helper   |     at wrapSafe (node:internal/modules/cjs/loader:1032:15)
+1|helper   |     at Module._compile (node:internal/modules/cjs/loader:1067:27)
+1|helper   |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1155:10)
+1|helper   |     at Module.load (node:internal/modules/cjs/loader:981:32)
+1|helper   |     at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+1|helper   |     at Object.<anonymous> (/home/ubuntu/.nvm/versions/node/v16.14.0/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+1|helper   |     at Module._compile (node:internal/modules/cjs/loader:1103:14)
+1|helper   |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1155:10)
+1|helper   |     at Module.load (node:internal/modules/cjs/loader:981:32)
+
+/home/ubuntu/.pm2/logs/helper-out.log last 15 lines:
+1|helper   | ok!
+1|helper   | ok!
+1|helper   | ok!
+1|helper   | ok!
+
+^[[A^[[A^C
+ubuntu@ip-172-31-13-131:~/webhook$ cd webhook/
+-bash: cd: webhook/: No such file or directory
+ubuntu@ip-172-31-13-131:~/webhook$ sudo nano helper.js 
+ubuntu@ip-172-31-13-131:~/webhook$ pm2 reload helper.js
+Use --update-env to update environment variables
+[PM2] Applying action reloadProcessId on app [helper.js](ids: [ 1 ])
+[PM2] [helper](1) ✓
+ubuntu@ip-172-31-13-131:~/webhook$ pm2 status
+┌─────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼───────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ helper    │ default     │ N/A     │ fork    │ 73692    │ 8s     │ 21   │ online    │ 0%       │ 44.5mb   │ ubuntu   │ disabled │
+│ 0   │ index     │ default     │ 1.0.0   │ fork    │ 67720    │ 2h     │ 0    │ online    │ 0%       │ 30.9mb   │ ubuntu   │ disabled │
+└─────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ubuntu@ip-172-31-13-131:~/webhook$ pm2 logs
+[TAILING] Tailing last 15 lines for [all] processes (change the value with --lines option)
+/home/ubuntu/.pm2/pm2.log last 15 lines:
+PM2        | 2022-08-23T14:45:48: PM2 log: App [helper:1] exited with code [0] via signal [SIGINT]
+PM2        | 2022-08-23T14:45:48: PM2 log: pid=73483 msg=process killed
+PM2        | 2022-08-23T14:45:48: PM2 log: App [helper:1] starting in -fork mode-
+PM2        | 2022-08-23T14:45:48: PM2 log: App [helper:1] online
+PM2        | 2022-08-23T14:45:56: PM2 log: Stopping app:helper id:1
+PM2        | 2022-08-23T14:45:56: PM2 log: App [helper:1] exited with code [0] via signal [SIGINT]
+PM2        | 2022-08-23T14:45:56: PM2 log: pid=73536 msg=process killed
+PM2        | 2022-08-23T15:02:39: PM2 log: App [helper:1] starting in -fork mode-
+PM2        | 2022-08-23T15:02:39: PM2 log: App [helper:1] online
+PM2        | 2022-08-23T15:04:53: PM2 log: Process 1 in a stopped status, starting it
+PM2        | 2022-08-23T15:04:53: PM2 log: Stopping app:helper id:1
+PM2        | 2022-08-23T15:04:53: PM2 log: App [helper:1] exited with code [0] via signal [SIGINT]
+PM2        | 2022-08-23T15:04:54: PM2 log: pid=73654 msg=process killed
+PM2        | 2022-08-23T15:04:54: PM2 log: App [helper:1] starting in -fork mode-
+PM2        | 2022-08-23T15:04:54: PM2 log: App [helper:1] online
+
+/home/ubuntu/.pm2/logs/index-error.log last 15 lines:
+/home/ubuntu/.pm2/logs/index-out.log last 15 lines:
+0|index    | hi
+0|index    | Node.js web server at port 5000 is running..
+
+/home/ubuntu/.pm2/logs/helper-error.log last 15 lines:
+1|helper   | /home/ubuntu/webhook/helper.js:14
+1|helper   |             exec('cd ' + /home/ubuntu/main-ser + ' && git pull');
+1|helper   |                          ^
+1|helper   | 
+1|helper   | SyntaxError: Invalid regular expression flags
+1|helper   |     at Object.compileFunction (node:vm:352:18)
+1|helper   |     at wrapSafe (node:internal/modules/cjs/loader:1032:15)
+1|helper   |     at Module._compile (node:internal/modules/cjs/loader:1067:27)
+1|helper   |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1155:10)
+1|helper   |     at Module.load (node:internal/modules/cjs/loader:981:32)
+1|helper   |     at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+1|helper   |     at Object.<anonymous> (/home/ubuntu/.nvm/versions/node/v16.14.0/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)
+1|helper   |     at Module._compile (node:internal/modules/cjs/loader:1103:14)
+1|helper   |     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1155:10)
+1|helper   |     at Module.load (node:internal/modules/cjs/loader:981:32)
+
+/home/ubuntu/.pm2/logs/helper-out.log last 15 lines:
+1|helper   | ok!
+1|helper   | ok!
+1|helper   | ok!
+1|helper   | ok!
+
+^X^C
+ubuntu@ip-172-31-13-131:~/webhook$ sudo nano helper.js 
+ubuntu@ip-172-31-13-131:~/webhook$ node helper.js 
+node:events:498
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::8080
+    at Server.setupListenHandle [as _listen2] (node:net:1330:16)
+    at listenInCluster (node:net:1378:12)
+    at Server.listen (node:net:1465:7)
+    at Object.<anonymous> (/home/ubuntu/webhook/helper.js:22:4)
+    at Module._compile (node:internal/modules/cjs/loader:1103:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1155:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)
+    at node:internal/main/run_main_module:17:47
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1357:8)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 8080
+}
+ubuntu@ip-172-31-13-131:~/webhook$ pm2 stop helper.js 
+[PM2] Applying action stopProcessId on app [helper.js](ids: [ 1 ])
+[PM2] [helper](1) ✓
+┌─────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼───────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ helper    │ default     │ N/A     │ fork    │ 0        │ 0      │ 21   │ stopped   │ 0%       │ 0b       │ ubuntu   │ disabled │
+│ 0   │ index     │ default     │ 1.0.0   │ fork    │ 67720    │ 3h     │ 0    │ online    │ 0%       │ 30.9mb   │ ubuntu   │ disabled │
+└─────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ubuntu@ip-172-31-13-131:~/webhook$ node helper.js 
+/home/ubuntu/main-ser/ adding sha1=3acd31add6a37f4a1270fc0dc8b92c6b8ceedb72
+^C
+ubuntu@ip-172-31-13-131:~/webhook$ node helper.js 
+^C
+ubuntu@ip-172-31-13-131:~/webhook$ sudo nano helper.js 
+ubuntu@ip-172-31-13-131:~/webhook$ node helper.js 
+/home/ubuntu/main-ser/ adding sha1=fc0b59f30285391ea9a81ceb86e0c5eef9e2a27f
+cd: Error: Command failed: cd /home/ubuntu/distro
+/bin/sh: 1: cd: can't cd to /home/ubuntu/distro
+ : 
+pwd: null : /home/ubuntu/webhook
+
+git status returned 
+null
+^[[A^[[B^C
+ubuntu@ip-172-31-13-131:~/webhook$ sudo nano helper.js 
+ubuntu@ip-172-31-13-131:~/webhook$ node helper.js 
+/home/ubuntu/main-ser/ adding sha1=4e801ba14e6b73ff209ec512cd769483283bde89
+cd: null : 
+pwd: null : /home/ubuntu/webhook
+
+git status returned 
+null
+^X^C
+ubuntu@ip-172-31-13-131:~/webhook$ sudo nano helper.js 
+ubuntu@ip-172-31-13-131:~/webhook$ node helper.js 
+/home/ubuntu/main-ser/ adding sha1=e6497b1cbc02d3e6bb37d7eebfe6434fa597ffda
+cd: null : Updating 2705766..e63138b
+Fast-forward
+ index.js | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+cd^C
+ubuntu@ip-172-31-13-131:~/webhook$ cd
+ubuntu@ip-172-31-13-131:~$ cd main-ser/
+ubuntu@ip-172-31-13-131:~/main-ser$ nano index.js 
+ubuntu@ip-172-31-13-131:~/main-ser$ cd
+ubuntu@ip-172-31-13-131:~$ cd webhook/
+ubuntu@ip-172-31-13-131:~/webhook$ sudo nano helper.js 
+ubuntu@ip-172-31-13-131:~/webhook$ node helper.js 
+/home/ubuntu/main-ser/ adding sha1=c40f19c5117132afd1788df7223f63738ea12462
+restart
+cd: null : Updating e63138b..d7282e3
+Fast-forward
+ index.js | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+^C
+ubuntu@ip-172-31-13-131:~/webhook$ cd
+ubuntu@ip-172-31-13-131:~$ cd main-ser/
+ubuntu@ip-172-31-13-131:~/main-ser$ pm2 restart index.js
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [index.js](ids: [ 0 ])
+[PM2] [index](0) ✓
+┌─────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼───────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ helper    │ default     │ N/A     │ fork    │ 0        │ 0      │ 21   │ stopped   │ 0%       │ 0b       │ ubuntu   │ disabled │
+│ 0   │ index     │ default     │ 1.0.0   │ fork    │ 73944    │ 0s     │ 1    │ online    │ 0%       │ 11.6mb   │ ubuntu   │ disabled │
+└─────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ubuntu@ip-172-31-13-131:~/main-ser$ cd webhook/
+-bash: cd: webhook/: No such file or directory
+ubuntu@ip-172-31-13-131:~/main-ser$ cd
+ubuntu@ip-172-31-13-131:~$ cd webhook/
+ubuntu@ip-172-31-13-131:~/webhook$ node helper.js 
+^X^C
+ubuntu@ip-172-31-13-131:~/webhook$ sudo nano helper.js 
+ubuntu@ip-172-31-13-131:~/webhook$ node helper.js 
+/home/ubuntu/main-ser/ adding sha1=c2b16ddfb3caf7dc4bc4eae7f07d466377295e5f
+cd: null : Updating d7282e3..2ad88b6
+Fast-forward
+ index.js | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [index.js](ids: [ 0 ])
+[PM2] [index](0) ✓
+┌─────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼───────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ helper    │ default     │ N/A     │ fork    │ 0        │ 0      │ 21   │ stopped   │ 0%       │ 0b       │ ubuntu   │ disabled │
+│ 0   │ index     │ default     │ 1.0.0   │ fork    │ 73999    │ 0s     │ 2    │ online    │ 0%       │ 14.4mb   │ ubuntu   │ disabled │
+└─────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+
+/home/ubuntu/main-ser/ adding sha1=e0890a1ad3494c32a765602a1196ee21bd844e11
+cd: null : Updating 2ad88b6..48ca226
+Fast-forward
+ index.js | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [index.js](ids: [ 0 ])
+[PM2] [index](0) ✓
+┌─────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼───────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ helper    │ default     │ N/A     │ fork    │ 0        │ 0      │ 21   │ stopped   │ 0%       │ 0b       │ ubuntu   │ disabled │
+│ 0   │ index     │ default     │ 1.0.0   │ fork    │ 74035    │ 0s     │ 3    │ online    │ 0%       │ 14.4mb   │ ubuntu   │ disabled │
+└─────┴──
