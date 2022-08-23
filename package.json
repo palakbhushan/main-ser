@@ -1,0 +1,19 @@
+{
+  "name": "main-ser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/palakbhushan/main-ser.git"
+  },
+  "author": "palak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/palakbhushan/main-ser/issues"
+  },
+  "homepage": "https://github.com/palakbhushan/main-ser#readme"
+}
