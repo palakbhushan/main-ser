@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/palakbhushan/main-ser/issues"
   },
-  "homepage": "https://github.com/palakbhushan/main-ser#readme"
+  "homepage": "https://github.com/palakbhushan/main-ser#readme",
+  "dependencies": {
+    "nodejs-nodemailer-outlook": "^1.2.4",
+    "nodemailer": "^6.7.8"
+  }
 }
